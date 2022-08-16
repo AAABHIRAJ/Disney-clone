@@ -81,9 +81,10 @@ const Background = styled.div`
 
 const ImageTitle = styled.div`
     padding:50px 40px;
+    margin-top:50px;
 
     img{
-        width:200px;
+        width:350px;
         object-fit:cover;
     }
 
@@ -104,6 +105,7 @@ const PlayButton = styled.button`
     background-color: rgb(249,249,249);
     cursor:pointer;
     margin-right:15px;
+    border:none;
 
     img{
         height:20px;

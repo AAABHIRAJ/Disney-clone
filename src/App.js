@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import Details from './components/Details';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/details' element={<Details />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home />} />
+
         </Routes>
       </Router>
     </div>
