@@ -4,13 +4,14 @@ import Navbar from './components/Navbar';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Details from './components/Details';
 import Login from './components/Login';
+import { useEffect } from 'react';
 
 function App() {
+
   return (
     <div>
       

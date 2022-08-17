@@ -1,16 +1,23 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import ImgSlider from './ImgSlider';
-import Movies from './Movies';
+import MoviesRow from './MoviesRow';
 import Viewers from './Viewers';
+import requests from "../Requests";
 
 function Home() {
   return (
       <Container>
           <ImgSlider />
           <Viewers />
-          <Movies />
-    </Container>
+          <MoviesRow title="Latest & Trending" fetchUrl={requests.fetchTrending}  />
+          <MoviesRow title="Popular Movies"    fetchUrl={requests.fetchTopRated}  />
+          <MoviesRow title="Popular in Action" fetchUrl={requests.fetchActionMovies}  />
+          <MoviesRow title="Popular in Comedy" fetchUrl={requests.fetchComedyMovies}  />
+          <MoviesRow title="Popular in Horror" fetchUrl={requests.fetchHorrorMovies}  />
+          <MoviesRow title="Popular in Romance" fetchUrl={requests.fetchRomanceMovies}  />
+          <MoviesRow title="Popular in Documentary" fetchUrl={requests.fetchDocumentaries} />
+      </Container>
   )
 }
 
