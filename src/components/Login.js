@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { auth, provider } from '../firebase';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../features/users/userSlice';
+
 
 function Login() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
+    const signIn = () => {
+        auth.signInWithPopup(provider)
+            .then((authUser) => {
+                const user = authUser.user;
+
+                dispatch(login({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }))
+            })
+        navigate("/");
+    }
+
+
   return (
     <Container>
         <Content>
@@ -9,7 +33,7 @@ function Login() {
                   src="images/cta-logo-one.svg"
               />
             
-              <SigninButton>
+              <SigninButton onClick={signIn}>
                   <span>GET ALL THERE</span>
               </SigninButton>
 
